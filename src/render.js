@@ -7,9 +7,9 @@ const render = (ast) => {
       type, key, value, meta,
     } = el;
     if (el.type === 'updated') {
-      return `- ${key}: ${value}\n+ ${key}: ${meta.oldValue}`;
+      return `  - ${key}: ${meta.oldValue}\n  + ${key}: ${value}`;
     }
-    return `${symbols[type]} ${key}: ${value}`;
+    return `  ${symbols[type]} ${key}: ${value}`;
   });
   return `{\n${gendiff.join('\n')}\n}`;
 };
