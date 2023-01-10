@@ -1,7 +1,6 @@
-import path, { parse } from 'node:path';
+import path from 'node:path';
 import process from 'node:process';
 // import fs from 'fs
-
 
 const getFullPath = (filename) => path.resolve(process.cwd(), filename);
 // const extractFormat = (filepath) => path.extname(filepath).slice(1);
