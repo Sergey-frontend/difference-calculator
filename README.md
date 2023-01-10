@@ -7,5 +7,5 @@
   2. Use the command 'make install'
 
 ### Gendiff launch example with JSON:
-<a href="https://asciinema.org/a/s2aEGvZvRsJ5aisjoXYHDCxNG" target="_blank"><img src="https://asciinema.org/a/s2aEGvZvRsJ5aisjoXYHDCxNG.svg" /></a>
+<a href="https://asciinema.org/a/yFdDmqnxDarDI6iVDft3rEOJk" target="_blank"><img src="https://asciinema.org/a/yFdDmqnxDarDI6iVDft3rEOJk.svg" /></a>
 
