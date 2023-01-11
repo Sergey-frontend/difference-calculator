@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import { expect, test } from '@jest/globals';
 import fs from 'fs';
 import gendiff from '../src/index.js';
 import getFullPath from '../src/getPath.js';
