@@ -10,3 +10,8 @@
 ### Gendiff launch example with JSON:
 <a href="https://asciinema.org/a/yFdDmqnxDarDI6iVDft3rEOJk" target="_blank"><img src="https://asciinema.org/a/yFdDmqnxDarDI6iVDft3rEOJk.svg" /></a>
 
+### Gendiff launch example with YAML:
+<a href="https://asciinema.org/a/WGgENJ4pYs8c6NBfKgqDMioxW" target="_blank"><img src="https://asciinema.org/a/WGgENJ4pYs8c6NBfKgqDMioxW.svg" /></a>
+
+### Gendif launch example with different format:
+<a href="https://asciinema.org/a/cRbYiIq4S4yfsA1b1jLZpLfng" target="_blank"><img src="https://asciinema.org/a/cRbYiIq4S4yfsA1b1jLZpLfng.svg" /></a>
