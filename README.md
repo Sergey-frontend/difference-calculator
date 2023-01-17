@@ -15,3 +15,6 @@
 
 ### Gendif launch example with different format:
 <a href="https://asciinema.org/a/cRbYiIq4S4yfsA1b1jLZpLfng" target="_blank"><img src="https://asciinema.org/a/cRbYiIq4S4yfsA1b1jLZpLfng.svg" /></a>
+
+### Gendif launch example with different format and nested stuctures:
+<a href="https://asciinema.org/a/PmNn84Ko53EkQ9JiRCs3yxhKA" target="_blank"><img src="https://asciinema.org/a/PmNn84Ko53EkQ9JiRCs3yxhKA.svg" /></a>
