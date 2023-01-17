@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-/* построение массива объекта с нужными значениями для вывода */
+/* all work */
 const mknode = (key, value, type, meta = {}) => ({
   key, value, type, meta,
 });
@@ -11,9 +11,17 @@ const build = (objects) => {
   const sortedKeys = _.sortBy(keys);
   const nodes = sortedKeys.map((key) => {
     const [value1, value2] = [obj1[key], obj2[key]];
+    if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
+      return {
+        key,
+        type: 'nested',
+        children: build([value1, value2]),
+      };
+    }
     if (!_.has(obj1, key)) return mknode(key, value2, 'added');
     if (!_.has(obj2, key)) return mknode(key, value1, 'removed');
     if (value1 !== value2) return mknode(key, value2, 'updated', { oldValue: value1 });
+
     return mknode(key, value1, 'unchanged');
   });
   return nodes;
