@@ -15,7 +15,7 @@ const getFormat = (ast, format) => {
       result = json(ast);
       break;
     default:
-      result = console.log(`Unknown format ${format}`);
+      result = `Unknown format ${format}`;
   }
   return result;
 };

@@ -1,19 +1,15 @@
-import { extname } from 'node:path';
 import yaml from 'js-yaml';
-import { readFileSync } from 'node:fs';
-import getFullPath from './getPath.js';
 
-const parse = (filename) => {
-  const fileExt = extname(filename).slice(1);
+const parse = (data, extention) => {
   let result;
-  if (fileExt === 'json') {
-    result = JSON.parse(readFileSync(getFullPath(filename)));
+  if (extention === '.json') {
+    result = JSON.parse(data);
   }
-  if (fileExt === 'yml') {
-    result = yaml.load(readFileSync(getFullPath(filename)));
+  if (extention === '.yml') {
+    result = yaml.load(data);
   }
-  if (fileExt === 'yaml') {
-    result = yaml.load(readFileSync(getFullPath(filename)));
+  if (extention === '.yaml') {
+    result = yaml.load(data);
   }
   return result;
 };
