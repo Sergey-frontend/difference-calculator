@@ -36,6 +36,6 @@ test.each(plainCase)('plain output', (file1, file2, expected) => {
   expect(gendiff(file1, file2, 'plain')).toBe(expected);
 });
 
-test.each(jsonCase)('plain output', (file1, file2, expected) => {
+test.each(jsonCase)('json output', (file1, file2, expected) => {
   expect(gendiff(file1, file2, 'json')).toBe(expected);
 });
