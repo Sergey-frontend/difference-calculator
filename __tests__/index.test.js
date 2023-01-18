@@ -30,16 +30,16 @@ const jsonCase = [
   ['__fixtures__/file1.yml', '__fixtures__/file2.json', jsonResult],
 ];
 
-test.each(stylishCase)('stylish output', (file1, file2, expected) => {
-  expect(gendiff(file1, file2)).toEqual(expected);
+test.each(stylishCase)('stylish output', (file1, file2, stylish) => {
+  expect(gendiff(file1, file2)).toEqual(stylish);
 });
 
-test.each(plainCase)('plain output', (file1, file2, expected) => {
-  expect(gendiff(file1, file2, 'plain')).toEqual(expected);
+test.each(plainCase)('plain output', (file1, file2, plain) => {
+  expect(gendiff(file1, file2, 'plain')).toEqual(plain);
 });
 
-test.each(jsonCase)('json output', (file1, file2, expected) => {
-  expect(gendiff(file1, file2, 'json')).toEqual(expected);
+test.each(jsonCase)('json output', (file1, file2, json) => {
+  expect(gendiff(file1, file2, 'json')).toEqual(json);
 });
 
 test('Unknown format', () => {
