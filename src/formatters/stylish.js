@@ -19,7 +19,7 @@ const makeString = (value, num = 1) => {
 const stylish = (build) => {
   const iter = (node, acc = 1) => {
     const {
-      type, key, value, meta, children,
+      key, value, type, children, meta,
     } = node;
     switch (type) {
       case 'added':

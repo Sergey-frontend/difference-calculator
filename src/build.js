@@ -1,6 +1,5 @@
 import _ from 'lodash';
 
-/* all work */
 const mknode = (key, value, type, meta = {}) => ({
   key, value, type, meta,
 });

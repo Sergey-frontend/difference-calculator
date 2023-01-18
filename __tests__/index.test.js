@@ -1,30 +1,29 @@
-import { beforeAll, expect, test } from '@jest/globals';
 import { readFileSync } from 'node:fs';
+import { expect, test } from '@jest/globals';
 import gendiff from '../src/index.js';
 import getFullPath from '../src/getPath.js';
-import getFormat from '../src/formatters/renderFormat.js';
 
-let result;
-let testingObj;
+const stylishResult = readFileSync(getFullPath('stylish-result.txt'), 'utf-8');
+const plainResult = readFileSync(getFullPath('plain-result.txt'), 'utf-8');
 
-beforeAll(() => {
-  result = readFileSync(getFullPath('result.txt'), 'utf8');
-  testingObj = { a: 1, b: 2, type: 'unknownType' };
+const stylishCase = [
+  ['file1.json', 'file2.json', stylishResult],
+  ['file1.yml', 'file2.yaml', stylishResult],
+  ['file1.json', 'file2.yaml', stylishResult],
+  ['file1.yml', 'file2.json', stylishResult],
+];
+
+const plainCase = [
+  ['file1.json', 'file2.json', plainResult],
+  ['file1.yml', 'file2.yaml', plainResult],
+  ['file1.json', 'file2.yaml', plainResult],
+  ['file1.yml', 'file2.json', plainResult],
+];
+
+test.each(stylishCase)('stylish output', (file1, file2, expected) => {
+  expect(gendiff(file1, file2)).toBe(expected);
 });
 
-test('compare two json files', () => {
-  expect(gendiff('file1.json', 'file2.json')).toEqual(result);
-});
-
-test('compare two yml/yaml files', () => {
-  expect(gendiff('file1.yml', 'file2.yaml')).toEqual(result);
-});
-
-test('compare json and yml/yaml files', () => {
-  expect(gendiff('file1.json', 'file2.yaml')).toEqual(result);
-});
-
-test('Unknown formats', () => {
-  expect(getFormat(testingObj, 'html')).toEqual(console.error('Unknown format html'));
-  expect(getFormat(testingObj, [])).toEqual(console.error('Unknown format []'));
+test.each(plainCase)('plain output', (file1, file2, expected) => {
+  expect(gendiff(file1, file2, 'plain')).toBe(expected);
 });
