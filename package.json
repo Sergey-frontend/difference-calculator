@@ -8,7 +8,7 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --bail --coverage"
   },
   "bin": {
-    "gendiff": "bin/gendiff.js"
+    "genDiff": "bin/gendiff.js"
   },
   "repository": {
     "type": "git",
