@@ -21,7 +21,7 @@ Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group2' was removed
 
 # format stylish
-gendiff filepath1.json filepath2.json
+gendiff path/to/file.yml another/path/file.json
 
 {
   + follow: false
@@ -36,6 +36,11 @@ gendiff filepath1.json filepath2.json
         key5: value5
     }
 }
+
+# format json
+gendiff --format json path/to/file.yml another/path/file.json
+
+[{"key":"common","type":"nested","children":[{"key":"follow","value":false,"type":"added","meta":{}}]
 ```
 ### How to install
 #### System requirements:
