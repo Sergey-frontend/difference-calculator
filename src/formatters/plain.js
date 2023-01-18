@@ -18,10 +18,10 @@ const plain = (build) => {
     switch (type) {
       case 'nested':
         return children.flatMap((child) => iter(child, `${parent}${key}.`)).join('\n');
-      case 'added':
-        return `Property '${parent}${key}' was added with value: ${makeString(value)}`;
       case 'removed':
         return `Property '${parent}${key}' was removed`;
+      case 'added':
+        return `Property '${parent}${key}' was added with value: ${makeString(value)}`;
       case 'updated':
         return `Property '${parent}${key}' was updated. From ${makeString(meta.oldValue)} to ${makeString(value)}`;
       case 'unchanged':
@@ -32,5 +32,4 @@ const plain = (build) => {
   const result = build.map((node) => iter(node));
   return `${result.join('\n')}`;
 };
-
 export default plain;

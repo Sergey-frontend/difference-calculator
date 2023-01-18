@@ -31,15 +31,15 @@ const jsonCase = [
 ];
 
 test.each(stylishCase)('stylish output', (file1, file2, expected) => {
-  expect(gendiff(file1, file2)).toBe(expected);
+  expect(gendiff(file1, file2)).toEqual(expected);
 });
 
 test.each(plainCase)('plain output', (file1, file2, expected) => {
-  expect(gendiff(file1, file2, 'plain')).toBe(expected);
+  expect(gendiff(file1, file2, 'plain')).toEqual(expected);
 });
 
 test.each(jsonCase)('json output', (file1, file2, expected) => {
-  expect(gendiff(file1, file2, 'json')).toBe(expected);
+  expect(gendiff(file1, file2, 'json')).toEqual(expected);
 });
 
 test('Unknown format', () => {
