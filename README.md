@@ -65,3 +65,5 @@ gendiff --help
 <a href="https://asciinema.org/a/Jg1Ktcj8VjD5qtsOfIGwcBIjZ" target="_blank"><img src="https://asciinema.org/a/Jg1Ktcj8VjD5qtsOfIGwcBIjZ.svg" /></a>
 #### Plain format:
 <a href="https://asciinema.org/a/LJQbJpz8nT2Bqwmhafi0exmur" target="_blank"><img src="https://asciinema.org/a/LJQbJpz8nT2Bqwmhafi0exmur.svg" /></a>
+#### JSON format
+<a href="https://asciinema.org/a/k5fnUQA0jLpIRTnowwTCt0205" target="_blank"><img src="https://asciinema.org/a/k5fnUQA0jLpIRTnowwTCt0205.svg" /></a>
