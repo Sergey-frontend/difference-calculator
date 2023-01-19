@@ -29,7 +29,8 @@ const plain = (build) => {
       default: throw new Error(`Unknown type: ${type}`);
     }
   };
-  const result = build.map((node) => iter(node));
-  return `${result.join('\n')}`;
+  const diff = build.map((node) => iter(node));
+  const result = `${diff.join('\n')}`;
+  return result.trim()
 };
 export default plain;
