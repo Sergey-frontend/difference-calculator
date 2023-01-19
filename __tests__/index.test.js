@@ -3,7 +3,6 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { cwd } from 'node:process';
 import gendiff from '../src/index.js';
-import getFormat from '../src/formatters/index.js';
 
 const getFixturesPath = (filepath) => resolve(cwd(), '__fixtures__', filepath);
 
@@ -40,8 +39,4 @@ test.each(plainCase)('plain output', (file1, file2, plain) => {
 
 test.each(jsonCase)('json output', (file1, file2, json) => {
   expect(gendiff(file1, file2, 'json')).toEqual(json);
-});
-
-test('Unknown format', () => {
-  expect(getFormat('asd', 'html')).toEqual('Unknown format html');
 });

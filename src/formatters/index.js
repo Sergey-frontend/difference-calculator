@@ -3,21 +3,15 @@ import plain from './plain.js';
 import json from './json.js';
 
 const getFormat = (ast, format) => {
-  let result;
   switch (format) {
     case 'stylish':
-      result = stylish(ast);
-      break;
+      return stylish(ast);
     case 'plain':
-      result = plain(ast);
-      break;
+      return plain(ast);
     case 'json':
-      result = json(ast);
-      break;
-    default:
-      result = `Unknown format ${format}`;
+      return json(ast);
+    default: throw new Error(`Unknown format: ${format}`);
   }
-  return result;
 };
 
 export default getFormat;

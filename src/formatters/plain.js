@@ -31,6 +31,7 @@ const plain = (build) => {
   };
   const diff = build.map((node) => iter(node));
   const result = `${diff.join('\n')}`;
-  return result.trim()
+  return result.trim();
 };
+
 export default plain;
