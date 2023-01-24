@@ -4,9 +4,6 @@
   "description": "Difference calculator - utility that determines the difference between two data structures",
   "main": "src/index.js",
   "type": "module",
-  "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --bail --coverage"
-  },
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
