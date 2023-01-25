@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-const mknode = (key, value, type, oldValue = {}) => ({
-  key, value, type, oldValue,
+const mknode = (key, value, type, updatedValue = {}) => ({
+  key, value, type, updatedValue,
 });
 
 const buildAST = ([obj1, obj2]) => {

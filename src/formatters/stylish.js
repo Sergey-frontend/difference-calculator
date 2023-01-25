@@ -19,7 +19,7 @@ const makeString = (value, num = 1) => {
 const stylish = (build) => {
   const iter = (node, acc = 1) => {
     const {
-      key, value, type, children, oldValue,
+      key, value, type, children, updatedValue,
     } = node;
     switch (type) {
       case 'added':
@@ -27,7 +27,7 @@ const stylish = (build) => {
       case 'unchanged':
         return `${setSpace(acc)}${symbols[type]} ${key}: ${makeString(value, acc)}`;
       case 'updated':
-        return `${setSpace(acc)}${symbols.removed} ${key}: ${makeString(oldValue, acc)}\n${setSpace(acc)}${symbols.added} ${key}: ${makeString(value, acc)}`;
+        return `${setSpace(acc)}${symbols.removed} ${key}: ${makeString(updatedValue, acc)}\n${setSpace(acc)}${symbols.added} ${key}: ${makeString(value, acc)}`;
       case 'nested': {
         const objectResult = children.flatMap((child) => iter(child, acc + 1));
         return `${setSpace(acc)}  ${key}: {\n${objectResult.join('\n')}\n${setSpace(acc)}  }`;
