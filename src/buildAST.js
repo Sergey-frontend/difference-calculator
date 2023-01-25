@@ -4,7 +4,7 @@ const mknode = (key, value, type, meta = {}) => ({
   key, value, type, meta,
 });
 
-const build = (objects) => {
+const buildAST = (objects) => {
   const [obj1, obj2] = objects;
   const keys = _.union(_.keys(obj1), _.keys(obj2));
   const sortedKeys = _.sortBy(keys);
@@ -14,7 +14,7 @@ const build = (objects) => {
       return {
         key,
         type: 'nested',
-        children: build([value1, value2]),
+        children: buildAST([value1, value2]),
       };
     }
     if (!_.has(obj1, key)) return mknode(key, value2, 'added');
@@ -26,4 +26,4 @@ const build = (objects) => {
   return nodes;
 };
 
-export default build;
+export default buildAST;

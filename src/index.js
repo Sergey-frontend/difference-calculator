@@ -1,7 +1,7 @@
 // основной файл для итоговой функции поиска разницы
 import path from 'node:path';
 import { readFileSync } from 'node:fs';
-import build from './build.js';
+import buildAST from './buildAST.js';
 import parse from './parser.js';
 import getFormat from './formatters/index.js';
 
@@ -16,7 +16,7 @@ const parseData = (filepath) => {
 const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
   const paths = [filepath1, filepath2];
   const data = paths.map(parseData);
-  const tree = build(data);
+  const tree = buildAST(data);
   return getFormat(tree, formatName);
 };
 
