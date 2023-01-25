@@ -13,7 +13,7 @@ const makeString = (value) => {
 const plain = (build) => {
   const iter = (node, parent = '') => {
     const {
-      key, value, type, children, meta,
+      key, value, type, children, oldValue,
     } = node;
     switch (type) {
       case 'nested':
@@ -23,7 +23,7 @@ const plain = (build) => {
       case 'added':
         return `Property '${parent}${key}' was added with value: ${makeString(value)}`;
       case 'updated':
-        return `Property '${parent}${key}' was updated. From ${makeString(meta.oldValue)} to ${makeString(value)}`;
+        return `Property '${parent}${key}' was updated. From ${makeString(oldValue)} to ${makeString(value)}`;
       case 'unchanged':
         return [];
       default: throw new Error(`Unknown type: ${type}`);

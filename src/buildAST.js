@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-const mknode = (key, value, type, meta = {}) => ({
-  key, value, type, meta,
+const mknode = (key, value, type, oldValue = {}) => ({
+  key, value, type, oldValue,
 });
 
 const buildAST = ([obj1, obj2]) => {
@@ -18,7 +18,7 @@ const buildAST = ([obj1, obj2]) => {
     }
     if (!_.has(obj1, key)) return mknode(key, value2, 'added');
     if (!_.has(obj2, key)) return mknode(key, value1, 'removed');
-    if (value1 !== value2) return mknode(key, value2, 'updated', { oldValue: value1 });
+    if (value1 !== value2) return mknode(key, value2, 'updated', value1);
 
     return mknode(key, value1, 'unchanged');
   });
