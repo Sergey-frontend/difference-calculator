@@ -10,7 +10,7 @@ describe.each([
   ['json'], ['yaml'],
 ])('$s extension', (extension) => {
   test.each([
-    ['stylish'], ['plain'],['json']
+    ['stylish'], ['plain'], ['json'],
   ])('%s formatter', (formatter) => {
     const file1Path = `__fixtures__/file1.${extension}`;
     const file2Path = `__fixtures__/file2.${extension}`;
