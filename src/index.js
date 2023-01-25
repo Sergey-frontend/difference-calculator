@@ -14,9 +14,9 @@ const parseData = (filepath) => {
 };
 
 const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const paths = [filepath1, filepath2];
-  const data = paths.map(parseData);
-  const tree = buildAST(data);
+  const data1 = parseData(filepath1)
+  const data2 = parseData(filepath2)
+  const tree = buildAST([data1, data2]);
   return getFormat(tree, formatName);
 };
 
