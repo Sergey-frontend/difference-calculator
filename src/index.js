@@ -7,16 +7,14 @@ import getFormat from './formatters/index.js';
 
 const getAbsolutePath = (filename) => path.resolve(process.cwd(), filename);
 
-const parseData = (filepath) => {
-  const extention = path.extname(filepath);
-  const data = readFileSync(getAbsolutePath(filepath), 'utf-8');
-  return parse(data, extention);
-};
+const getData = (filepath) => readFileSync(getAbsolutePath(filepath), 'utf-8');
+
+const getExtentions = (filepath) => path.extname(filepath);
 
 const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const data1 = parseData(filepath1)
-  const data2 = parseData(filepath2)
-  const tree = buildAST([data1, data2]);
+  const parseData1 = parse(getData(filepath1), getExtentions(filepath1));
+  const parseData2 = parse(getData(filepath2), getExtentions(filepath2));
+  const tree = buildAST([parseData1, parseData2]);
   return getFormat(tree, formatName);
 };
 
