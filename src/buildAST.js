@@ -4,8 +4,7 @@ const mknode = (key, value, type, meta = {}) => ({
   key, value, type, meta,
 });
 
-const buildAST = (objects) => {
-  const [obj1, obj2] = objects;
+const buildAST = ([obj1, obj2]) => {
   const keys = _.union(_.keys(obj1), _.keys(obj2));
   const sortedKeys = _.sortBy(keys);
   const nodes = sortedKeys.map((key) => {
