@@ -2,8 +2,8 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-const getFormat = (ast, format) => {
-  switch (format) {
+const format = (ast, formatter) => {
+  switch (formatter) {
     case 'stylish':
       return stylish(ast);
     case 'plain':
@@ -14,4 +14,4 @@ const getFormat = (ast, format) => {
   }
 };
 
-export default getFormat;
+export default format;

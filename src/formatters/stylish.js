@@ -2,7 +2,10 @@ import _ from 'lodash';
 
 const symbols = { removed: '-', added: '+', unchanged: ' ' };
 
-const setSpace = (num, str = ' ') => str.repeat(num * 4 - 2);
+const getSpace = (num, str = ' ') => {
+  const defaultSpace = 4;
+  return str.repeat(num * defaultSpace - 2);
+};
 
 const makeString = (value, num = 1) => {
   if (!_.isObject(value)) {
@@ -11,26 +14,29 @@ const makeString = (value, num = 1) => {
   const keys = _.keys(value);
   const result = keys.map((key) => {
     const nestedKey = value[key];
-    return `${setSpace(num + 1)}  ${key}: ${makeString(nestedKey, num + 1)}`;
+    return `${getSpace(num + 1)}  ${key}: ${makeString(nestedKey, num + 1)}`;
   });
-  return `{\n${result.join('\n')}\n  ${setSpace(num)}}`;
+  return `{\n${result.join('\n')}\n  ${getSpace(num)}}`;
 };
 
 const stylish = (build) => {
-  const iter = (node, acc = 1) => {
+  const iter = (node, depth = 1) => {
     const {
       key, value, type, children, updatedValue,
     } = node;
-    switch (type) {
+    switch (node.type) {
       case 'added':
       case 'removed':
       case 'unchanged':
-        return `${setSpace(acc)}${symbols[type]} ${key}: ${makeString(value, acc)}`;
-      case 'updated':
-        return `${setSpace(acc)}${symbols.removed} ${key}: ${makeString(updatedValue, acc)}\n${setSpace(acc)}${symbols.added} ${key}: ${makeString(value, acc)}`;
+        return `${getSpace(depth)}${symbols[type]} ${key}: ${makeString(value, depth)}`;
+      case 'updated': {
+        const removedKey = `${getSpace(depth)}${symbols.removed} ${key}: ${makeString(updatedValue, depth)}`;
+        const addedKey = `${getSpace(depth)}${symbols.added} ${key}: ${makeString(value, depth)}`;
+        return `${removedKey}\n${addedKey}`;
+      }
       case 'nested': {
-        const objectResult = children.flatMap((child) => iter(child, acc + 1));
-        return `${setSpace(acc)}  ${key}: {\n${objectResult.join('\n')}\n${setSpace(acc)}  }`;
+        const objectResult = children.flatMap((child) => iter(child, depth + 1));
+        return `${getSpace(depth)}  ${key}: {\n${objectResult.join('\n')}\n${getSpace(depth)}  }`;
       }
       default: throw new Error(`Unknown type: ${type}`);
     }
