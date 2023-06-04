@@ -5,11 +5,12 @@
 <a href="https://codeclimate.com/github/Sergey-frontend/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/0e505028450adff7c00f/test_coverage" /></a>
 ## Difference calculator
 ### Description
-This is utility that determines the difference between two data structures.
-
-#### Utility features:
- - Support for different input formats: yaml, json, ini
- - Report generation in the form of plain text, stylish and json
+Difference Calculator is a command-line utility that helps you compare and identify the differences between two data structures. Whether you're working with YAML, JSON, or INI files, this tool allows you to easily analyze and understand the variations between them.
+#### Features
+- Support for multiple input formats: YAML, JSON, INI
+- Three output formats to choose from: plain text, stylish, and JSON
+- Intuitive and user-friendly command-line interface
+- Fast and efficient comparison algorithm
 
 #### Usage example:
 ```bash
@@ -48,14 +49,19 @@ Node 16.x version at least
 ``` bash
 # Clone this repository
 git clone git@github.com:Sergey-frontend/difference-calculator.git
+
 # Go to dowloaded directory
 cd difference-calculator
+
 # Install dependencies
 npm ci
+
 # Link package.json to "./bin" directory
 npm link
+
 # Use utility
 gendiff <filepath1> <filepath2>
+
 # Or get more info
 gendiff --help
 ```
