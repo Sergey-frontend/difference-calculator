@@ -6,13 +6,13 @@
 ## Difference calculator
 ### Description
 Difference Calculator is a command-line utility that helps you compare and identify the differences between two data structures. Whether you're working with YAML, JSON, or INI files, this tool allows you to easily analyze and understand the variations between them.
-#### Features
+### Features
 - Support for multiple input formats: YAML, JSON, INI
 - Three output formats to choose from: plain text, stylish, and JSON
 - Intuitive and user-friendly command-line interface
 - Fast and efficient comparison algorithm
 
-#### Usage example:
+### Usage example:
 ```bash
 # format plain
 gendiff --format plain path/to/file.yml another/path/file.json
@@ -43,8 +43,7 @@ gendiff --format json path/to/file.yml another/path/file.json
 
 [{"key":"common","type":"nested","children":[{"key":"follow","value":false,"type":"added","meta":{}}]
 ```
-### How to install
-#### System requirements:
+### How to use
 Node 16.x version at least
 ``` bash
 # Clone this repository
@@ -67,9 +66,4 @@ gendiff --help
 ```
 
 ### Gendif launch example with different format and nested stuctures:
-#### Stylish format:
-<a href="https://asciinema.org/a/Jg1Ktcj8VjD5qtsOfIGwcBIjZ" target="_blank"><img src="https://asciinema.org/a/Jg1Ktcj8VjD5qtsOfIGwcBIjZ.svg" /></a>
-#### Plain format:
-<a href="https://asciinema.org/a/LJQbJpz8nT2Bqwmhafi0exmur" target="_blank"><img src="https://asciinema.org/a/LJQbJpz8nT2Bqwmhafi0exmur.svg" /></a>
-#### JSON format
-<a href="https://asciinema.org/a/k5fnUQA0jLpIRTnowwTCt0205" target="_blank"><img src="https://asciinema.org/a/k5fnUQA0jLpIRTnowwTCt0205.svg" /></a>
+[![asciicast](https://asciinema.org/a/hdQ3c5gAVBrHlz7dkvlUtAUTM.svg)](https://asciinema.org/a/hdQ3c5gAVBrHlz7dkvlUtAUTM)
