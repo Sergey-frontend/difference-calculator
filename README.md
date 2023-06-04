@@ -47,9 +47,9 @@ gendiff --format json path/to/file.yml another/path/file.json
 Node 16.x version at least
 ``` bash
 # Clone this repository
-git clone git@github.com:Sergey-frontend/frontend-project-46.git
+git clone git@github.com:Sergey-frontend/difference-calculator.git
 # Go to dowloaded directory
-cd frontend-project-46
+cd difference-calculator
 # Install dependencies
 npm ci
 # Link package.json to "./bin" directory
